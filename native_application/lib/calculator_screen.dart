@@ -142,12 +142,14 @@ class _CalculatorState extends State<Calculator> {
       userInput = result;
       if (userInput.endsWith('.0')) {
         userInput = userInput.replaceAll('.0', '');
-        
+
         if (result.endsWith('.0')) {
           result = result.replaceAll('.0', '');
         }
-        return;
       }
+
+      userInput = '';
+      return;
     }
 
     userInput = userInput + btnText;
