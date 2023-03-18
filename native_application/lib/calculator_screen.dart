@@ -38,7 +38,7 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.black,
       body: Column(
         children: [
           SizedBox(
@@ -91,32 +91,21 @@ class _CalculatorState extends State<Calculator> {
   }
 
   Widget createCutomButton(String btnText) {
-    return InkWell(
-      splashColor: const Color(0xFF1d2630),
-      onTap: () {
+    return ElevatedButton(
+      onPressed: () {
         setState(() {
           handleButtons(btnText);
         });
       },
-      child: Ink(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white.withOpacity(0.1),
-                blurRadius: 4,
-                spreadRadius: 0.5,
-                offset: const Offset(-3, -3),
-              ),
-            ]),
-        child: Center(
-          child: Text(
-            btnText,
-            style: const TextStyle(
-                color: Colors.blue, fontSize: 32, fontWeight: FontWeight.w500),
-          ),
-        ),
+      style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          )),
+      child: Text(
+        btnText,
+        style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
       ),
     );
   }
