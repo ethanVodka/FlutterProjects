@@ -98,8 +98,8 @@ class _CalculatorState extends State<Calculator> {
         });
       },
       style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.white,
+          foregroundColor: createForeColor(btnText),
+          backgroundColor: createBackColor(btnText),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           )),
@@ -152,6 +152,40 @@ class _CalculatorState extends State<Calculator> {
       return evaluation.toString();
     } catch (e) {
       return 'Error';
+    }
+  }
+
+  createBackColor(String btnText) {
+    if (btnText == '=' ||
+        btnText == '+' ||
+        btnText == '*' ||
+        btnText == '/' ||
+        btnText == '-') {
+      return Colors.orange;
+    } else if (btnText == 'AC' ||
+        btnText == '(' ||
+        btnText == ')' ||
+        btnText == 'C') {
+      return Colors.blueGrey;
+    } else {
+      return Colors.white;
+    }
+  }
+
+  createForeColor(String btnText) {
+    if (btnText == '=' ||
+        btnText == '+' ||
+        btnText == '*' ||
+        btnText == '/' ||
+        btnText == '-') {
+      return Colors.white;
+    } else if (btnText == 'AC' ||
+        btnText == '(' ||
+        btnText == ')' ||
+        btnText == 'C') {
+      return Colors.white;
+    } else {
+      return Colors.black;
     }
   }
 }
